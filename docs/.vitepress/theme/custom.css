@@ -217,11 +217,9 @@ html:not(.dark) .VPNav {
     margin-top: 8px;
   }
 
-  /* Hide the local nav (bottom bar with menu/outline buttons)
-     since we handle sidebar via the main hamburger */
-  .VPLocalNav {
-    display: none !important;
-  }
+  /* Restore VPLocalNav for outline/chapter navigation buttons.
+     The custom hamburger logic in index.ts intercepts .VPNavBarHamburger 
+     clicks, so the sidebar toggle works from the top nav bar. */
 
   /* Ensure backdrop is clickable for closing sidebar */
   .VPBackdrop.show {
