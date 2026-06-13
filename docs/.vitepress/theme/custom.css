@@ -1,0 +1,354 @@
+/* ============================================
+   Coding Learn — Custom VitePress Theme
+   Design System: Dark Developer Docs
+   Hub accent: #6366F1 (Indigo)
+   Section accents: Go #22C55E, Python #3776AB, TS #3178C6
+   Fonts: IBM Plex Sans (body) + JetBrains Mono (code)
+   ============================================ */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  /* --- Hub Brand Colors (Indigo) — overridden by SectionTheme.vue per section --- */
+  --vp-c-brand-1: #6366F1;
+  --vp-c-brand-2: #4F46E5;
+  --vp-c-brand-3: #4338CA;
+  --vp-c-brand-soft: rgba(99, 102, 241, 0.10);
+
+  /* --- Fonts --- */
+  --vp-font-family-base: 'IBM Plex Sans', 'PingFang SC', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --vp-font-family-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+/* ============================================
+   Dark Theme (Default)
+   ============================================ */
+.dark {
+  --vp-c-bg: #0F172A;
+  --vp-c-bg-soft: #1E293B;
+  --vp-c-bg-mute: #334155;
+  --vp-c-bg-el: #1E293B;
+
+  --vp-c-text-1: #F8FAFC;
+  --vp-c-text-2: #CBD5E1;
+  --vp-c-text-3: #94A3B8;
+
+  --vp-c-border: rgba(148, 163, 184, 0.12);
+  --vp-c-divider: rgba(148, 163, 184, 0.08);
+  --vp-c-gutter: rgba(148, 163, 184, 0.06);
+
+  --vp-c-brand-1: #818CF8;
+  --vp-c-brand-2: #6366F1;
+  --vp-c-brand-3: #A5B4FC;
+  --vp-c-brand-soft: rgba(129, 140, 248, 0.14);
+
+  --vp-code-bg: #0D1117;
+  --vp-code-color: #F8FAFC;
+
+  --vp-sidebar-bg-color: #0F172A;
+  --vp-sidebar-border-color: rgba(148, 163, 184, 0.08);
+
+  --vp-local-search-bg: #1E293B;
+}
+
+/* ============================================
+   Light Theme
+   ============================================ */
+html:not(.dark) {
+  --vp-c-bg: #FFFFFF;
+  --vp-c-bg-soft: #F8FAFC;
+  --vp-c-bg-mute: #F1F5F9;
+  --vp-c-bg-el: #F8FAFC;
+
+  --vp-c-text-1: #0F172A;
+  --vp-c-text-2: #475569;
+  --vp-c-text-3: #64748B;
+
+  --vp-c-border: rgba(15, 23, 42, 0.08);
+  --vp-c-divider: rgba(15, 23, 42, 0.06);
+  --vp-c-gutter: rgba(15, 23, 42, 0.04);
+
+  --vp-c-brand-1: #6366F1;
+  --vp-c-brand-2: #4F46E5;
+  --vp-c-brand-3: #4338CA;
+  --vp-c-brand-soft: rgba(99, 102, 241, 0.10);
+
+  --vp-code-bg: #F1F5F9;
+  --vp-code-color: #0F172A;
+
+  --vp-sidebar-bg-color: #F8FAFC;
+  --vp-sidebar-border-color: rgba(15, 23, 42, 0.06);
+
+  --vp-local-search-bg: #FFFFFF;
+}
+
+/* ============================================
+   Layout & Typography
+   ============================================ */
+
+/* Wider content area for code-heavy docs */
+.VPDoc .content-container {
+  max-width: 860px !important;
+}
+
+/* Better code block styling */
+.vp-doc div[class*='language-'] {
+  border-radius: 12px;
+  margin: 16px 0;
+}
+
+.vp-doc div[class*='language-'] > span.lang {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.75rem;
+}
+
+/* Inline code */
+.vp-doc :not(pre) > code {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.875em;
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+}
+
+/* Table styling */
+.vp-doc table {
+  display: block;
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+.vp-doc table th,
+.vp-doc table td {
+  padding: 10px 16px;
+}
+
+.vp-doc table th {
+  font-weight: 600;
+}
+
+/* Blockquote */
+.vp-doc blockquote {
+  border-left: 4px solid var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 20px;
+  margin: 16px 0;
+}
+
+/* Headings */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  letter-spacing: -0.015em;
+}
+
+.vp-doc h2 {
+  margin-top: 2em;
+}
+
+.vp-doc h3 {
+  margin-top: 1.5em;
+}
+
+/* Custom container (tip/warning/danger) */
+.custom-block.tip {
+  border-color: var(--vp-c-brand-1);
+}
+
+/* ============================================
+   Sidebar
+   ============================================ */
+.VPSidebar {
+  font-family: var(--vp-font-family-base);
+}
+
+.VPSidebar .curtain {
+  display: none;
+}
+
+/* Active sidebar link */
+.VPSidebarItem.is-active > .VPLink .link {
+  color: var(--vp-c-brand-1) !important;
+  font-weight: 600;
+}
+
+/* ============================================
+   Navigation Bar
+   ============================================ */
+.VPNav {
+  backdrop-filter: blur(12px);
+}
+
+.dark .VPNav {
+  background: rgba(15, 23, 42, 0.85) !important;
+}
+
+html:not(.dark) .VPNav {
+  background: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.VPFooter {
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+/* ============================================
+   Reading Progress Bar — handled by ReadingProgress.vue
+   ============================================ */
+
+/* ============================================
+   Mobile: Show theme switch & social links in
+   sidebar bottom, hide from nav bar
+   ============================================ */
+@media (max-width: 959px) {
+  .VPNavBarExtra {
+    display: none !important;
+  }
+
+  .VPSidebarBottom {
+    display: flex !important;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 20px 16px;
+    border-top: 1px solid var(--vp-c-divider);
+    margin-top: 8px;
+  }
+}
+
+/* ============================================
+   Mobile: Outline (chapter TOC) toggle
+   ============================================ */
+@media (max-width: 959px) {
+  .VPDocOutlineButton {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .VPDocOutlineDropdown {
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 768px) {
+  .vp-doc div[class*='language-'] {
+    border-radius: 8px;
+    margin: 12px 0;
+  }
+
+  .vp-doc blockquote {
+    padding: 10px 14px;
+  }
+
+  .vp-doc h2 {
+    margin-top: 1.5em;
+  }
+
+  .vp-doc h3 {
+    margin-top: 1.2em;
+  }
+
+  .vp-doc p {
+    margin: 0.8em 0;
+  }
+
+  .vp-doc ul, .vp-doc ol {
+    padding-left: 1.2em;
+  }
+
+  .VPDoc .content-container {
+    padding: 0 16px;
+  }
+}
+
+/* ============================================
+   Section Landing Page Hero (doc layout)
+   ============================================ */
+.home-hero {
+  text-align: center;
+  padding: 80px 24px 48px;
+}
+
+.home-title {
+  font-family: var(--vp-font-family-mono);
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 16px;
+  background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.home-subtitle {
+  font-family: var(--vp-font-family-base);
+  font-size: 1.2rem;
+  color: var(--vp-c-text-2);
+  margin: 0 0 32px;
+  font-weight: 400;
+}
+
+.home-cta {
+  display: inline-block;
+  font-family: var(--vp-font-family-base);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 12px 28px;
+  border-radius: 8px;
+  background: var(--vp-c-brand-1);
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.home-cta:hover {
+  background: var(--vp-c-brand-2);
+  transform: translateY(-1px);
+}
+
+.home-divider {
+  width: 64px;
+  height: 3px;
+  background: var(--vp-c-brand-1);
+  border-radius: 2px;
+  margin: 0 auto 24px;
+}
+
+@media (max-width: 768px) {
+  .home-hero {
+    padding: 48px 16px 32px;
+  }
+
+  .home-title {
+    font-size: 1.75rem;
+  }
+
+  .home-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   Print
+   ============================================ */
+@media print {
+  .VPNav,
+  .VPSidebar,
+  .VPFooter,
+  .reading-progress,
+  .back-to-top {
+    display: none !important;
+  }
+
+  .VPDoc .content-container {
+    max-width: 100% !important;
+  }
+}
