@@ -11,8 +11,14 @@ import './custom.css'
 
 const SCROLL_KEY = (path: string) => `scroll:${path}`
 
+// Guard: during scroll restoration, suppress saveScroll to avoid
+// overwriting the saved position with scrollY=0 (VitePress scrolls
+// to top before our restore runs).
+let isRestoring = false
+
 function saveScroll(path: string) {
   if (typeof sessionStorage === 'undefined') return
+  if (isRestoring) return
   sessionStorage.setItem(SCROLL_KEY(path), String(window.scrollY))
 }
 
@@ -23,11 +29,20 @@ function restoreScroll(path: string) {
     || sessionStorage.getItem(SCROLL_KEY(path.replace(/\.html$/, '')))
     || sessionStorage.getItem(SCROLL_KEY(path + '.html'))
   if (saved) {
+    isRestoring = true
     requestAnimationFrame(() => {
       setTimeout(() => {
         window.scrollTo(0, Number(saved))
+        // Keep suppressing saves for a short window after scrollTo
+        // so the browser's own scroll-to-top race is fully resolved
+        setTimeout(() => {
+          isRestoring = false
+        }, 100)
       }, 300)
     })
+  } else {
+    // No saved position — allow saves immediately
+    isRestoring = false
   }
 }
 
@@ -90,6 +105,9 @@ export default {
     }
 
     onMounted(() => {
+      // Block saveScroll immediately to prevent VitePress's
+      // initial scroll-to-top from overwriting the saved position
+      isRestoring = true
       window.addEventListener('scroll', onScroll, { passive: true })
       // Restore scroll position on initial load
       requestAnimationFrame(() => {
@@ -118,6 +136,11 @@ export default {
     app.component('HubHome', HubHome)
 
     if (router) {
+      // Block saveScroll during initial page load to prevent
+      // onBeforeRouteChange from overwriting the saved scroll position
+      // with scrollY=0 before onMounted runs.
+      isRestoring = true
+
       // Save scroll position BEFORE navigation (before VitePress scrolls to top)
       router.onBeforeRouteChange = (to: string) => {
         if (typeof window !== 'undefined') {
