@@ -163,10 +163,6 @@ html:not(.dark) {
   font-family: var(--vp-font-family-base);
 }
 
-.VPSidebar .curtain {
-  display: none;
-}
-
 /* Active sidebar link */
 .VPSidebarItem.is-active > .VPLink .link {
   color: var(--vp-c-brand-1) !important;
@@ -201,13 +197,9 @@ html:not(.dark) .VPNav {
 
 /* ============================================
    Mobile: Show theme switch & social links in
-   sidebar bottom, hide from nav bar
+   sidebar bottom
    ============================================ */
 @media (max-width: 959px) {
-  .VPNavBarExtra {
-    display: none !important;
-  }
-
   .VPSidebarBottom {
     display: flex !important;
     flex-direction: column;
@@ -215,35 +207,6 @@ html:not(.dark) .VPNav {
     padding: 12px 20px 16px;
     border-top: 1px solid var(--vp-c-divider);
     margin-top: 8px;
-  }
-
-  /* Restore VPLocalNav for outline/chapter navigation buttons.
-     The custom hamburger logic in index.ts intercepts .VPNavBarHamburger 
-     clicks, so the sidebar toggle works from the top nav bar. */
-
-  /* Ensure backdrop is clickable for closing sidebar */
-  .VPBackdrop.show {
-    display: block !important;
-  }
-
-  /* Ensure sidebar slides in properly on mobile */
-  .VPSidebar.open {
-    transform: translateX(0) !important;
-  }
-}
-
-/* ============================================
-   Mobile: Outline (chapter TOC) toggle
-   ============================================ */
-@media (max-width: 959px) {
-  .VPDocOutlineButton {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-
-  .VPDocOutlineDropdown {
-    max-height: 60vh;
-    overflow-y: auto;
   }
 }
 

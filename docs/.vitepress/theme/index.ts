@@ -32,107 +32,36 @@ function restoreScroll(path: string) {
 }
 
 /**
- * On mobile (< 960px), intercept hamburger clicks to toggle the sidebar.
- * Provides open/close functionality via:
- * - Hamburger button (toggle)
- * - Backdrop click (close)
- * - Sidebar link click (close after navigation)
+ * Intercept hamburger clicks to open sidebar instead of NavScreen.
+ * Uses VitePress's internal sidebar state via DOM class observation.
  */
 function setupHamburgerToSidebar() {
   if (typeof window === 'undefined') return
 
-  function closeSidebar() {
-    const sidebar = document.querySelector('.VPSidebar') as HTMLElement
-    const backdrop = document.querySelector('.VPBackdrop') as HTMLElement
-    const navScreen = document.querySelector('.VPNavScreen') as HTMLElement
-    const hamburger = document.querySelector('.VPNavBarHamburger') as HTMLElement
-
-    if (sidebar) sidebar.classList.remove('open')
-    if (backdrop) {
-      backdrop.classList.remove('show')
-      backdrop.style.display = 'none'
-    }
-    if (navScreen) {
-      navScreen.style.display = 'none'
-      navScreen.classList.remove('open')
-    }
-    if (hamburger) {
-      hamburger.classList.remove('active')
-      hamburger.setAttribute('aria-expanded', 'false')
-    }
-  }
-
-  function openSidebar() {
-    const sidebar = document.querySelector('.VPSidebar') as HTMLElement
-    const backdrop = document.querySelector('.VPBackdrop') as HTMLElement
-    const navScreen = document.querySelector('.VPNavScreen') as HTMLElement
-
-    // Force close nav screen first
-    if (navScreen) {
-      navScreen.style.display = 'none'
-      navScreen.classList.remove('open')
-    }
-
-    if (sidebar) {
-      sidebar.classList.add('open')
-    }
-    if (backdrop) {
-      backdrop.style.display = ''
-      backdrop.classList.add('show')
-    }
-  }
-
   function handleHamburgerClick(e: MouseEvent) {
     // Only on mobile
-    if (window.innerWidth >= 960) return
+    if (window.innerWidth >= 768) return
 
     const target = e.target as HTMLElement
     const hamburger = target.closest('.VPNavBarHamburger')
     if (!hamburger) return
 
-    // Check if current page has a sidebar
-    const sidebar = document.querySelector('.VPSidebar')
-    if (!sidebar) return
-
-    // Always prevent default (would open VPNavScreen)
+    // Prevent default NavScreen behavior
     e.preventDefault()
     e.stopPropagation()
 
-    // Toggle: if sidebar is open, close it; otherwise open it
-    const isOpen = sidebar.classList.contains('open')
-    if (isOpen) {
-      closeSidebar()
-    } else {
-      openSidebar()
-    }
-  }
-
-  function handleBackdropClick(e: MouseEvent) {
-    const target = e.target as HTMLElement
-    if (target.closest('.VPBackdrop')) {
-      closeSidebar()
-    }
-  }
-
-  function handleSidebarLinkClick(e: MouseEvent) {
-    // Close sidebar when clicking a link inside it (for SPA navigation)
-    const target = e.target as HTMLElement
-    const link = target.closest('.VPSidebar a')
-    if (link) {
-      // Small delay to let navigation happen first
-      setTimeout(closeSidebar, 100)
+    // Toggle sidebar via VPLocalNav's menu button
+    const menuButton = document.querySelector('.VPLocalNav .menu') as HTMLButtonElement
+    if (menuButton) {
+      menuButton.click()
     }
   }
 
   // Use capture phase to intercept before VitePress handler
   document.addEventListener('click', handleHamburgerClick, true)
-  document.addEventListener('click', handleBackdropClick, true)
-  document.addEventListener('click', handleSidebarLinkClick, true)
 
   return () => {
     document.removeEventListener('click', handleHamburgerClick, true)
-    document.removeEventListener('click', handleBackdropClick, true)
-    document.removeEventListener('click', handleSidebarLinkClick, true)
   }
 }
 
