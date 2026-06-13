@@ -216,6 +216,22 @@ html:not(.dark) .VPNav {
     border-top: 1px solid var(--vp-c-divider);
     margin-top: 8px;
   }
+
+  /* Hide the local nav (bottom bar with menu/outline buttons)
+     since we handle sidebar via the main hamburger */
+  .VPLocalNav {
+    display: none !important;
+  }
+
+  /* Ensure backdrop is clickable for closing sidebar */
+  .VPBackdrop.show {
+    display: block !important;
+  }
+
+  /* Ensure sidebar slides in properly on mobile */
+  .VPSidebar.open {
+    transform: translateX(0) !important;
+  }
 }
 
 /* ============================================
