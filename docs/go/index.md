@@ -11,3 +11,12 @@ title: 阅读指南
 <div class="home-divider"></div>
 
 > 跳过基础语法，聚焦并发、接口、性能、微服务与工程化实战。
+
+## 📚 推荐资源
+
+- [Go 官方文档](https://go.dev/doc/)
+- [Go 标准库文档](https://pkg.go.dev/std)
+- [Go by Example](https://gobyexample.com/)
+- [Effective Go](https://go.dev/doc/effective_go)
+- [GitHub - golang/go](https://github.com/golang/go)
+- [GitHub - gin-gonic/gin](https://github.com/gin-gonic/gin)

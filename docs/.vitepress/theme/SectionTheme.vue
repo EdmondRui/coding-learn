@@ -48,6 +48,20 @@ const sections = {
       '--vp-c-brand-soft': 'rgba(49, 120, 198, 0.14)'
     }
   },
+  rust: {
+    light: {
+      '--vp-c-brand-1': '#CE422B',
+      '--vp-c-brand-2': '#A3361F',
+      '--vp-c-brand-3': '#7D2A18',
+      '--vp-c-brand-soft': 'rgba(206, 66, 43, 0.10)'
+    },
+    dark: {
+      '--vp-c-brand-1': '#E5533B',
+      '--vp-c-brand-2': '#F07153',
+      '--vp-c-brand-3': '#F5A08E',
+      '--vp-c-brand-soft': 'rgba(229, 83, 59, 0.14)'
+    }
+  },
   default: {
     light: {
       '--vp-c-brand-1': '#6366F1',
@@ -70,6 +84,7 @@ function applyTheme() {
 
   if (path.includes('/go/')) section = 'go'
   else if (path.includes('/python/')) section = 'python'
+  else if (path.includes('/rust/')) section = 'rust'
   else if (path.includes('/typescript/')) section = 'typescript'
 
   const mode = isDark.value ? 'dark' : 'light'

@@ -23,6 +23,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: 'Go', link: '/go/', activeMatch: '/go/' },
       { text: 'Python', link: '/python/', activeMatch: '/python/' },
+      { text: 'Rust', link: '/rust/', activeMatch: '/rust/' },
       { text: 'TypeScript', link: '/typescript/', activeMatch: '/typescript/' }
     ],
 
@@ -91,6 +92,49 @@ export default defineConfig({
           items: [
             { text: '第 9 章 测试与性能调优', link: '/python/09-testing-performance' },
             { text: '第 10 章 部署与运维', link: '/python/10-deployment-ops' }
+          ]
+        }
+      ],
+
+      '/rust/': [
+        {
+          text: '开始',
+          items: [
+            { text: '阅读指南', link: '/rust/' }
+          ]
+        },
+        {
+          text: '基础篇',
+          items: [
+            { text: '第 1 章 入门与环境搭建', link: '/rust/01-getting-started' },
+            { text: '第 2 章 基础语法与变量', link: '/rust/02-basic-syntax' },
+            { text: '第 3 章 所有权与借用', link: '/rust/03-ownership-borrowing' },
+            { text: '第 4 章 结构体、枚举与模式匹配', link: '/rust/04-structs-enums-patterns' },
+            { text: '第 5 章 错误处理', link: '/rust/05-error-handling' },
+            { text: '第 6 章 特征与泛型', link: '/rust/06-traits-generics' },
+            { text: '第 7 章 模块与包管理', link: '/rust/07-modules-crates' }
+          ]
+        },
+        {
+          text: '进阶篇',
+          items: [
+            { text: '第 8 章 集合与迭代器', link: '/rust/08-collections-iterators' },
+            { text: '第 9 章 智能指针与生命周期', link: '/rust/09-smart-pointers-lifetimes' },
+            { text: '第 10 章 并发编程', link: '/rust/10-concurrency' },
+            { text: '第 11 章 异步编程', link: '/rust/11-async-programming' },
+            { text: '第 12 章 宏与元编程', link: '/rust/12-macros' },
+            { text: '第 13 章 Unsafe Rust 与 FFI', link: '/rust/13-unsafe-ffi' }
+          ]
+        },
+        {
+          text: '实战篇',
+          items: [
+            { text: '第 14 章 Web 开发', link: '/rust/14-web-development' },
+            { text: '第 15 章 数据库与缓存', link: '/rust/15-database-cache' },
+            { text: '第 16 章 命令行工具开发', link: '/rust/16-cli-development' },
+            { text: '第 17 章 系统编程', link: '/rust/17-systems-programming' },
+            { text: '第 18 章 测试与基准测试', link: '/rust/18-testing-benchmarking' },
+            { text: '第 19 章 部署与最佳实践', link: '/rust/19-deployment-best-practices' }
           ]
         }
       ],

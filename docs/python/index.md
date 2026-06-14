@@ -11,3 +11,13 @@ title: 阅读指南
 <div class="home-divider"></div>
 
 > 跳过基础语法，聚焦高级特性、异步编程、Web 开发与工程化实战。
+
+## 📚 推荐资源
+
+- [Python 官方文档](https://docs.python.org/3/)
+- [Python 官方教程](https://docs.python.org/3/tutorial/)
+- [PEP 索引](https://peps.python.org/)
+- [Real Python](https://realpython.com/)
+- [GitHub - python/cpython](https://github.com/python/cpython)
+- [GitHub - fastapi/fastapi](https://github.com/fastapi/fastapi)
+- [GitHub - django/django](https://github.com/django/django)

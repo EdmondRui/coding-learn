@@ -21,6 +21,15 @@ const sections = [
     chapters: '10 章'
   },
   {
+    name: 'Rust',
+    href: '/rust/',
+    firstChapter: '/rust/01-getting-started',
+    logo: '/rust-logo.svg',
+    accent: '#CE422B',
+    desc: '所有权系统 · 并发安全 · 系统编程 · Web 开发',
+    chapters: '19 章'
+  },
+  {
     name: 'TypeScript',
     href: '/typescript/',
     firstChapter: '/typescript/01-introduction-and-setup',
@@ -63,7 +72,7 @@ const sections = [
     </div>
 
     <div class="hub-footer-note">
-      <p>更多语言文档持续添加中 · Rust / Java / Kotlin 敬请期待</p>
+      <p>更多语言文档持续添加中 · Java / Kotlin 敬请期待</p>
     </div>
   </div>
 </template>
@@ -126,7 +135,7 @@ const sections = [
 
 .hub-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   margin-top: 48px;
 }

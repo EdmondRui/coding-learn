@@ -11,3 +11,11 @@ title: 阅读指南
 <div class="home-divider"></div>
 
 > 跳过基础语法，聚焦类型系统、泛型、工程化与实战模式。
+
+## 📚 推荐资源
+
+- [TypeScript 官方文档](https://www.typescriptlang.org/docs/)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/)
+- [TypeScript Playground](https://www.typescriptlang.org/play)
+- [TypeScript Deep Dive](https://basarat.gitbook.io/typescript/)
+- [GitHub - microsoft/TypeScript](https://github.com/microsoft/TypeScript)

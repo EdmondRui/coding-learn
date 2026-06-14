@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88" fill="none">
-  <rect width="88" height="88" rx="16" fill="#3776AB"/>
-  <path d="M43.5 18c-8.3 0-15 2.2-15 5v6c0 2.8 6.7 5 15 5s15-2.2 15-5v-6c0-2.8-6.7-5-15-5z" fill="white"/>
-  <path d="M28.5 31v8c0 2.8 6.7 5 15 5s15-2.2 15-5v-8" stroke="#3776AB" stroke-width="1.5" fill="none"/>
-  <path d="M28.5 39v8c0 2.8 6.7 5 15 5s15-2.2 15-5v-8" stroke="#3776AB" stroke-width="1.5" fill="none"/>
-  <path d="M28.5 47v8c0 2.8 6.7 5 15 5s15-2.2 15-5v-8" stroke="#3776AB" stroke-width="1.5" fill="none"/>
-  <path d="M28.5 55v8c0 2.8 6.7 5 15 5s15-2.2 15-5v-8" stroke="#3776AB" stroke-width="1.5" fill="none"/>
-  <circle cx="36" cy="23" r="2" fill="#FFD43B"/>
-  <circle cx="51" cy="23" r="2" fill="#FFD43B"/>
+  <rect width="88" height="88" rx="16" fill="#F7F7F7"/>
+  <!-- Blue snake (top-left) -->
+  <path d="M44 12c-9 0-16 4-16 9v13h16v4H28c-9 0-16 4-16 9v13c0 5 7 9 16 9h4V56c0-5 7-9 16-9h13c9 0 16-4 16-9V21c0-5-7-9-16-9z" fill="#3776AB"/>
+  <!-- Yellow snake (bottom-right) -->
+  <path d="M44 76c9 0 16-4 16-9V54H44v-4h16c9 0 16-4 16-9V28c0-5-7-9-16-9h-4v13c0 5-7 9-16 9H28c-9 0-16 4-16 9v13c0 5 7 9 16 9z" fill="#FFD43B"/>
+  <!-- Eyes -->
+  <circle cx="35" cy="21" r="3" fill="#FFD43B"/>
+  <circle cx="53" cy="67" r="3" fill="#3776AB"/>
 </svg>
