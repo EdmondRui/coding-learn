@@ -59,6 +59,13 @@ export default defineConfig({
             { text: '第 9 章 工程化实践', link: '/go/09-engineering' },
             { text: '第 10 章 高级模式与实战', link: '/go/10-advanced-patterns' }
           ]
+        },
+        {
+          text: '解决方案与设计模式',
+          items: [
+            { text: '第 11 章 常见技术解决方案', link: '/go/11-common-solutions' },
+            { text: '第 12 章 设计模式', link: '/go/12-design-patterns' }
+          ]
         }
       ],
 
@@ -92,6 +99,13 @@ export default defineConfig({
           items: [
             { text: '第 9 章 测试与性能调优', link: '/python/09-testing-performance' },
             { text: '第 10 章 部署与运维', link: '/python/10-deployment-ops' }
+          ]
+        },
+        {
+          text: '解决方案与设计模式',
+          items: [
+            { text: '第 11 章 常见技术解决方案', link: '/python/11-common-solutions' },
+            { text: '第 12 章 设计模式', link: '/python/12-design-patterns' }
           ]
         }
       ],
@@ -136,6 +150,13 @@ export default defineConfig({
             { text: '第 18 章 测试与基准测试', link: '/rust/18-testing-benchmarking' },
             { text: '第 19 章 部署与最佳实践', link: '/rust/19-deployment-best-practices' }
           ]
+        },
+        {
+          text: '解决方案与设计模式',
+          items: [
+            { text: '第 20 章 常见技术解决方案', link: '/rust/20-common-solutions' },
+            { text: '第 21 章 设计模式', link: '/rust/21-design-patterns' }
+          ]
         }
       ],
 
@@ -168,6 +189,13 @@ export default defineConfig({
           items: [
             { text: '第 8 章 学习路线与练习建议', link: '/typescript/08-learning-path-and-exercises' },
             { text: '第 9 章 tsconfig 与语法速查', link: '/typescript/09-tsconfig-and-cheatsheet' }
+          ]
+        },
+        {
+          text: '解决方案与设计模式',
+          items: [
+            { text: '第 10 章 常见技术解决方案', link: '/typescript/10-common-solutions' },
+            { text: '第 11 章 设计模式', link: '/typescript/11-design-patterns' }
           ]
         }
       ]
