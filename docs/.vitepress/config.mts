@@ -61,6 +61,15 @@ export default defineConfig({
           ]
         },
         {
+          text: '深度剖析',
+          items: [
+            { text: '第 13 章 Goroutine 深度剖析', link: '/go/13-goroutine-deep-dive' },
+            { text: '第 14 章 高级并发模式', link: '/go/14-concurrency-patterns-advanced' },
+            { text: '第 15 章 内存管理与 GC 深度', link: '/go/15-memory-gc-deep-dive' },
+            { text: '第 16 章 反射、unsafe 与 CGo 进阶', link: '/go/16-reflect-unsafe-cgo' }
+          ]
+        },
+        {
           text: '解决方案与设计模式',
           items: [
             { text: '第 11 章 常见技术解决方案', link: '/go/11-common-solutions' },
