@@ -192,6 +192,14 @@ export default defineConfig({
           ]
         },
         {
+          text: '高级篇',
+          items: [
+            { text: '第 12 章 高级类型系统', link: '/typescript/12-advanced-type-system' },
+            { text: '第 13 章 Node.js 开发实践', link: '/typescript/13-nodejs-development' },
+            { text: '第 14 章 前端工程化与 React 类型实践', link: '/typescript/14-frontend-engineering' }
+          ]
+        },
+        {
           text: '解决方案与设计模式',
           items: [
             { text: '第 10 章 常见技术解决方案', link: '/typescript/10-common-solutions' },
