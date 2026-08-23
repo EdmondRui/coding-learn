@@ -4,6 +4,7 @@ import BackToTop from './BackToTop.vue'
 import ReadingProgress from './ReadingProgress.vue'
 import SectionTheme from './SectionTheme.vue'
 import HubHome from './HubHome.vue'
+import CodeExpand from './CodeExpand.vue'
 import { h, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
 import { useRoute } from 'vitepress'
 import type { EnhanceAppContext } from 'vitepress'
@@ -87,7 +88,7 @@ export default {
     return h(DefaultTheme.Layout, null, {
       'layout-top': () => h(SectionTheme),
       'sidebar-nav-after': () => h(SidebarBottom),
-      'layout-bottom': () => h(BackToTop),
+      'layout-bottom': () => [h(BackToTop), h(CodeExpand)],
       'nav-bar-title-after': () => h(ReadingProgress)
     })
   },

@@ -103,6 +103,56 @@ html:not(.dark) {
   font-size: 0.75rem;
 }
 
+/* ============================================
+   Code Expand Button — injected by CodeExpand.vue
+   Sits left of the native copy button, top-right
+   ============================================ */
+.vp-doc div[class*='language-'] {
+  position: relative;
+}
+
+.vp-doc div[class*='language-'] > .expand-code-btn {
+  position: absolute;
+  top: 12px;
+  right: 56px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--vp-code-copy-code-border-color);
+  border-radius: 4px;
+  background-color: var(--vp-code-copy-code-bg);
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s,
+    color 0.25s,
+    opacity 0.25s;
+}
+
+.vp-doc div[class*='language-']:hover > .expand-code-btn,
+.vp-doc div[class*='language-'] > .expand-code-btn:focus-visible {
+  opacity: 1;
+}
+
+.vp-doc div[class*='language-'] > .expand-code-btn:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+  background-color: var(--vp-code-copy-code-hover-bg);
+}
+
+/* Touch devices have no hover — always show copy & expand */
+@media (hover: none) {
+  .vp-doc [class*='language-'] > button.copy,
+  .vp-doc [class*='language-'] > .expand-code-btn {
+    opacity: 1;
+  }
+}
+
 /* Inline code */
 .vp-doc :not(pre) > code {
   font-family: var(--vp-font-family-mono);
@@ -217,6 +267,27 @@ html:not(.dark) .VPNav {
   .vp-doc div[class*='language-'] {
     border-radius: 8px;
     margin: 12px 0;
+  }
+
+  /* Tighter code padding to reclaim width */
+  .vp-doc [class*='language-'] code {
+    padding: 0 14px;
+  }
+
+  .vp-doc [class*='language-'] pre {
+    padding: 14px 0;
+  }
+
+  /* Smaller floating buttons on small screens */
+  .vp-doc [class*='language-'] > button.copy,
+  .vp-doc [class*='language-'] > .expand-code-btn {
+    top: 8px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .vp-doc div[class*='language-'] > .expand-code-btn {
+    right: 50px;
   }
 
   .vp-doc blockquote {
